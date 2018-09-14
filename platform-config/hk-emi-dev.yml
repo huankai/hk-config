@@ -132,6 +132,13 @@ hk:
       logout-url: /logout
       logout-success-url: http://127.0.0.1:8771/oauth2/oauth/logout?redirect_url=http://127.0.0.1:8771/emi/index
       gate-way-host: http://127.0.0.1:8771/emi
+################################################################### swagger 文档自动配置
+  swagger:
+    title: "XXX公司_字典信息管理系统_接口文档"
+    description: "用于管理系统字典信息,具体包括字典管理模块、地区管理模块..."
+    version: "2.0.2.RELEASE"
+    base-package: "com.hk.emi.controller"
+
 ################################################################### logging
 logging:
   level:

@@ -146,6 +146,13 @@ hk:
 #            - /aaaa/**
 #          permission: admin
     default-failure-url: http://127.0.0.1:8771/fs/error  #使用了gateway这里写上gateway访问的路径，如果是前后端分离项目，可以不需要这样写
+
+######################################################### swagger 文档生成配置
+  swagger:
+    title: "XXX公司_文件管理系统_接口文档"
+    description: "用于管理文件系统..."
+    version: "2.0.2.RELEASE"
+    base-package: "com.hk.fs.controller"
 ######################################################### logging 配置
 logging:
   level:
