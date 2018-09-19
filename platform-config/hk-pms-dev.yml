@@ -28,15 +28,15 @@ spring:
       #         auto: upload
       # 解决懒加载在非事务中的 no-session 的问题 @see https://stackoverflow.com/questions/36583185/spring-data-jpa-could-not-initialize-proxy-no-session-with-methods-marke
          enable_lazy_load_no_trans: true
-         dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+         dialect: org.hibernate.dialect.PostgreSQL95Dialect
 
   datasource:
     name: druid
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/hk_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
-    username: root
-    password: root
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.64.135:5432/postgres
+    username: postgres
+    password:
     druid:
       initial-size: 1
       max-active: 20
