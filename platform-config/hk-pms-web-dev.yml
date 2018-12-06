@@ -46,9 +46,9 @@ spring:
     name: druid
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.107.245.220:3807/hk_pms?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-    username: pms
-    password: pmsadmin
+    url: jdbc:mysql://192.168.64.150:3306/hk_pms?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
     druid:
       initial-size: 1
       max-active: 20
@@ -81,9 +81,9 @@ spring:
   cache:
     type: redis
   redis:
-    host: 47.107.245.220
-    password: redisa$min302
-    port: 6350
+    host: 192.168.64.150
+    password: 
+    port: 6379
     database: 2
     timeout: 3000ms
     lettuce:
@@ -121,7 +121,7 @@ spring:
   boot:
     admin:
       client:
-        url: "http://127.0.0.1:9999/admin-server"
+        url: "http://127.0.0.1:8780"
         username: user
         password: user#1350
         instance:
@@ -145,7 +145,7 @@ eureka:
     prefer-ip-address: false
   client:
     service-url:
-      defaultZone: http://root:root123@47.107.245.220/eureka-server/eureka
+      defaultZone: http://root:root123@127.0.0.1:8761/eureka-server/eureka
 ######################################################### mybatis 配置
 mybatis:
   mapper-locations: classpath:mybatis/mappers/*.xml
