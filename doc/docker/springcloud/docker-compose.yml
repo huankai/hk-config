@@ -3,12 +3,12 @@ services:
   eureka-server:
    # 指定 Dockerfile文件路径
     build: .
-    image: eureka-server
+    image: eureka-server:2.1.0
     container_name: eureka-server
     ports:
       - "8761:8761"
     volumes:
-      - "/etc/timezone:/etc/timezone"
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/data/docker/springcloud/eureka-server:/app:ro"
     command:
@@ -33,7 +33,7 @@ services:
     restart: "always" 
   config-server:
     build: .
-    image: config-server
+    image: config-server:2.1.0
     container_name: config-server
     ports:
       - "8770:8770"
@@ -53,7 +53,7 @@ services:
     ports:
       - "7100:7100"
     volumes:
-      - "/etc/timezone:/etc/timezone"
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/data/docker/springcloud/oauth2-server:/app:ro"
     command:

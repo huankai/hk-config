@@ -6,13 +6,14 @@ services:
     ports:
       - "3306:3306"
     volumes: 
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/data/docker/mysql8.0.13/data/:/var/lib/mysql"
       - "/data/docker/mysql8.0.13/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
       - "/data/docker/mysql8.0.13/logs:/logs"
     restart: "always"
     environment: 
-    #如果不指定密码，密码的用户只能本机登陆，且root密码为 空
+    #如果不指定密码，用户只能本机登陆，且root密码为 空
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
       #MYSQL_ROOT_PASSWORD: 'root'
   postgresql: 
@@ -21,6 +22,7 @@ services:
     ports:
       - "5432:5432"
     volumes: 
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/data/docker/postgres/data:/var/lib/postgresql/data/"
     restart: "always"
@@ -33,7 +35,7 @@ services:
       - "6379:6379"
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes: 
-      - "/etc/timezone:/etc/timezone"
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "/data/docker/redis5.0/conf/redis.conf:/usr/local/etc/redis/redis.conf"
       - "/data/docker/redis5.0/data:/data"
@@ -83,6 +85,7 @@ services:
       - "8870:8870"
       - "8871:8871"
     volumes:
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - /data/docker/nexus3:/nexus-data
     restart: "always"
@@ -94,6 +97,7 @@ services:
       - "8085:80"
       - "88:22"
     volumes:
+      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - /data/docker/gitlab/config:/etc/gitlab
       - /data/docker/gitlab/logs:/var/log/gitlab
