@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="resources/public/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>huangkai的主页</title>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            background: url(resources/public/bg.jpg) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .main-title {
+            margin-top: 100px;
+            color: #fff;
+        }
+
+        .int-wrap {
+            margin-top: 60px;
+        }
+
+        .int-wrap .int-item {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 70%;
+            margin-bottom: 30px;
+        }
+
+        .int-wrap .int-item > a {
+            display: block;
+            position: absolute;
+            padding: 15px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 500ms ease;
+        }
+
+        .int-wrap .int-item > a:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .int-wrap .int-item > a > .int-icon {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 10px auto 0 auto;
+            transition: transform 500ms ease;
+        }
+
+        .int-wrap .int-item > a:hover > .int-icon {
+            transform: rotate(18deg);
+        }
+
+        .int-wrap .int-item > a > .int-icon > img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .int-wrap .int-item > a > .int-title {
+            height: 26px;
+            margin-top: 10px;
+            line-height: 26px;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .int-wrap .int-item > a > .int-desc{
+            max-height: 40px;
+            line-height: 20px;
+            white-space: normal;
+            word-break: break-all;
+            overflow: hidden;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<h1 class="main-title text-center">huangkai 的系统主页</h1>
+<div class="container">
+    <div class="row int-wrap">
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="https://huankai.github.io/" target="_blank" >
+                    <div class="int-icon"><img src="resources/public/blog_logo.jpg"></div>
+                    <div class="int-title"><strong>个人博客</strong></div>
+                    <div class="int-desc">个人博客</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.107.245.220/oauth2/" target="_blank">
+		    <div class="int-icon"><img src="resources/public/oauth2_logo.jpg"></div>
+                    <div class="int-title"><strong>Oauth2 单点登录</strong></div>
+                    <div class="int-desc">Oauth2 单点登陆服务中心</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.106.129.67/pms" target="_blank">
+                    <div class="int-icon"><img src="resources/public/default_logo.jpg"></div>
+                    <div class="int-title"><strong>权限管理系统</strong></div>
+                    <div class="int-desc">集成Oauth2 单点登陆的统一权限管理系统</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.107.245.220:8081" target="_blank">
+                    <div class="int-icon"><img src="resources/public/nexus_logo.jpg"></div>
+                    <div class="int-title"><strong>Nexus</strong></div>
+                    <div class="int-desc">Maven 、Docker 仓库中心</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.107.245.220:8085" target="_blank">
+        	    <div class="int-icon"><img src="resources/public/gitlab_logo.jpg"></div>
+                    <div class="int-title"><strong>GitLab</strong></div>
+                    <div class="int-desc">GitLab 版本管理系统</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.107.245.220:9000" target="_blank">
+                    <div class="int-icon"><img src="resources/public/portainer_logo.jpg"></div>
+                    <div class="int-title"><strong>Portainer</strong></div>
+                    <div class="int-desc">Docker Web 图形化界面管理</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.107.245.220/eureka-server/" target="_blank">
+                    <div class="int-icon"><img src="resources/public/spring_cloud_eureka.jpg"></div>
+                    <div class="int-title"><strong>Eureka</strong></div>
+                    <div class="int-desc">Eureka 注册中心</div>
+                </a>
+            </div>
+        </div>
+	<div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="http://47.106.129.67:9090/" target="_blank">
+                    <div class="int-icon"><img src="resources/public/zookeeper_logo.png"></div>
+                    <div class="int-title"><strong>Zookeeper UI</strong></div>
+                    <div class="int-desc">Apache Zookeeper Web 管理控制台</div>
+                </a>
+            </div>
+        </div>
+       <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="#">
+                    <div class="int-icon"><img src="resources/public/kafka_logo.jpg"></div>
+                    <div class="int-title"><strong>Apache Kafka</strong></div>
+                    <div class="int-desc">Apache Kafka 管理控制台</div>
+                </a>
+            </div>
+        </div>
+<!--
+        <div class="col-md-4 col-sm-6">
+            <div class="int-item">
+                <a href="#">
+                    <div class="int-icon"><img src="public/hadoop_logo.png"></div>
+                    <div class="int-title"><strong>Apache Hadoop</strong></div>
+                    <div class="int-desc">Apache Hadoop 管理控制台</div>
+                </a>
+            </div>
+        </div>
+-->
+    </div>
+</div>
+
+<script src="resources/js/jquery.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+version: "3"
+services: 
+  mysql8: 
+    image: mysql:8.0.13
+    container_name: mysql8
+    ports:
+      - "3306:3306"
+    volumes: 
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/docker/mysql8.0.13/data/:/var/lib/mysql"
+      - "/data/docker/mysql8.0.13/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
+      - "/data/docker/mysql8.0.13/logs:/logs"
+    restart: "always"
+    environment: 
+    #如果不指定密码，密码的用户只能本机登陆，且root密码为 空
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+      #MYSQL_ROOT_PASSWORD: 'root'
+  postgresql: 
+    image: postgres:11.1
+    container_name: postgresql11
+    ports:
+      - "5432:5432"
+    volumes: 
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/docker/postgres/data:/var/lib/postgresql/data/"
+    restart: "always"
+    environment: 
+      POSTGRES_PASSWORD: postresRoot9
+  redis5: 
+    image: redis:5.0
+    container_name: redis5
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes: 
+      - "/etc/timezone:/etc/timezone"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/docker/redis5.0/conf/redis.conf:/usr/local/etc/redis/redis.conf"
+      - "/data/docker/redis5.0/data:/data"
+    restart: "always"    
+  solr: 
+    image: solr:7.4
+    container_name: solr
+    ports:
+     - "8983:8983"
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/docker/solr/server/solr/mycores:/opt/solr/server/solr/mycores"
+    restart: "always"
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - test
+  nginx:
+    image: nginx:1.15.6
+    container_name: nginx
+    ports: 
+      - "80:80"
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/data/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "/data/docker/nginx/conf.d:/etc/nginx/conf.d"
+      - "/data/docker/nginx/logs:/var/log/nginx"
+      - "/data/docker/nginx/html:/usr/share/nginx/html/"
+      - "/data/docker/nginx/resources:/usr/share/nginx/resources"
+    restart: "always"
+  portainer:
+    image: docker.io/portainer/portainer
+    container_name: portainer
+    ports: 
+      - "9000:9000"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: "always"
+  nexus: 
+    image: docker.io/sonatype/nexus3:latest
+    container_name: nexus3
+    ports: 
+      - "8081:8081"
+      - "8870:8870"
+      - "8871:8871"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - /data/docker/nexus3:/nexus-data
+    restart: "always"
+  gitlab: 
+    image: gitlab/gitlab-ce
+    container_name: gitlab
+    hostname: 192.168.1.76
+    ports: 
+      - "8085:80"
+      - "88:22"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - /data/docker/gitlab/config:/etc/gitlab
+      - /data/docker/gitlab/logs:/var/log/gitlab
+      - /data/docker/gitlab/data:/var/opt/gitlab
+    restart: "always"
+  zookeeper: 
+    image: zookeeper:3.5
+    restart: always
+    container_name: zookeeper
+    hostname: 192.168.1.76
+    ports: 
+      - "2181:2181"
+    # 单机版部署，服务器不足
+    #environment:
+    #  ZOO_MY_ID: 1
+    #  ZOO_SERVERS: server.1=huangkai.com:2888:3888 server.2=huangkai01.com:2888:3888 server.3=huangkai01.com:2777:3777
+    
+
+    
