@@ -12,7 +12,7 @@ services:
       - "/data/docker/mysql8.0.13/logs:/logs"
     restart: "always"
     environment: 
-    #如果不指定密码，用户只能本机登陆，且root密码为 空
+    #如果不指定密码，用户只能本机登陆，且root密码为空
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
       #MYSQL_ROOT_PASSWORD: 'root'
   postgresql: 
@@ -88,6 +88,7 @@ services:
   gitlab: 
     image: gitlab/gitlab-ce
     container_name: gitlab
+    # 指定 hostname，
     hostname: 192.168.1.76
     ports: 
       - "8085:80"
