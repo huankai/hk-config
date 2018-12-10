@@ -296,7 +296,8 @@ hk:
   request:
     # 放入request属性 @see com.hk.core.web.interceptors.GlobalPropertyInterceptor
     property:
-      resourceUrlPrefix: http://192.168.64.150/resources
+      #resourceUrlPrefix: http://192.168.64.150/resources
+      resourceUrlPrefix: resources
   authentication:
     browser:
       login-url: /login

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>
+    <dataSource type="JdbcDataSource"
+     driver="com.mysql.cj.jdbc.Driver"
+     url="jdbc:mysql://172.17.0.1:3807/hk_pms?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"
+     user="pms"
+     password="pmsadmin"/>
+        <document>
+            <entity name="app" query="SELECT * FROM sys_app">
+                <field column="id" name="id"/>
+                <field column="app_code" name="appCode"/>
+                <field column="app_name" name="appName"/>
+                <field column="start_date" name="start_date"/>
+            </entity>
+        </document>
+</dataConfig>

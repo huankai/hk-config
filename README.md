@@ -33,6 +33,45 @@
 ## 4、复制文件： ##
 将 `doc/docker` 目录下的文件与文件夹上传到 `/data/docker` 目录下，该目录下有`docker-compose.yml` 文件，可根据需要修改。
 
+想看目录结构如下：
+```
+[huangkai@localhost ~]$ pwd
+/data/docker
+[huangkai@localhost ~]$ tree -L 2   # -L 2 表示显示2级目录
+.
+├── docker-compose.yml
+├── gitlab
+│   ├── config
+│   ├── data
+│   └── logs
+├── mysql8.0.13
+│   ├── conf
+│   ├── data
+│   └── logs
+├── nexus3
+├── nginx
+│   ├── conf
+│   ├── conf.d
+│   ├── html
+│   ├── logs
+│   └── resources
+├── postgres
+│   └── data
+├── redis5.0
+│   ├── conf
+│   └── data
+├── solr
+│   └── server
+└── springcloud
+    ├── config-server
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── eureka-server
+    ├── oauth2-server
+    └── sprintboot-admin
+[root@localhost docker]# 
+```
+
 ### 5、启动服务 #
 
 使用 `docker-compose up -d` 启动服务
